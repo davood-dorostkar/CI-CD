@@ -5,6 +5,8 @@
 - Unlike other tools, all you need is a `.yaml` file to store the workflow definitions in a folder called `.github/workflows`
 - It doesn't matter what name you give these YAML files because each file describes when they should be triggered
 
+![](/img/actions-tree.png)
+
 ## Marketplace
 - hosts actions that you can use in your workflows
 - large variety of actions for almost any language and step that you need to perform
@@ -24,24 +26,33 @@
 - a series of automated procedures represented as jobs and steps that GitHub Actions executes
 - Every repository can have any number of workflows
 - Each workflow has the following components: 
-  - It has an `event` that tells it when the workflow should run.
-    - when you push to a repo
-    - create a pull request
-    - create a release 
-  - it uses `runners` to execute the jobs. There are built-in runners for different virtual environments, or you can use a self-hosted runner in your environment. 
-  - it contains one or more `jobs`. 
-    - builds your component 
-    - publishes it to an artifact repository
-    - deploys it to an environment
-  - Each job can contain one or more `steps`
-    - check out the code
-    - compile the code
-    - run a linter on the code
-    - runs a suite of test cases
-  - each step can contain one or more `actions` or shell commands. Actions are the lowest level of a workflow. They perform a single task
-    - check out code
-    - install dependencies
-    - compile code
-    - run tests
+#### Event
+an `event` that tells it when the workflow should run.
+- when you push to a repo
+- create a pull request
+- create a release 
+
+#### Job
+Each workflow contains one or more `jobs`. 
+- builds your component 
+- publishes it to an artifact repository
+- deploys it to an environment
+
+#### Runner
+Every job has a `runner`, which is a server that performs jobs on a specific platform or operating system. GitHub can host runners, or you can host your own runners on a standalone server. There's also a way to execute steps in a Docker container, but the Docker container is executing on a runner. 
+
+#### Step
+Each job can contain one or more `steps`
+- check out the code
+- compile the code
+- run a linter on the code
+- runs a suite of test cases
+
+#### Action
+each step can contain one or more `actions` or shell commands. Actions are the lowest level of a workflow. They perform a single task
+- check out code
+- install dependencies
+- compile code
+- run tests
 
 ![](/img/actions-hierarchy.png)

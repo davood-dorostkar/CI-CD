@@ -20,6 +20,7 @@ developing solutions in continous integration and continous delivery frameworks
 
 ### GitHub Actions
 1. [Intro](/ibm/github-actions.md)
+2. [Deep Dive](/ibm/github-actions-deep-dive.md)
 
 
 ### Practice CI-CD
