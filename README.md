@@ -9,5 +9,15 @@ developing solutions in continous integration and continous delivery frameworks
 
 ### CI
 1. [Understanding CI](/ibm/ci.md)
+2. [Benefits of CI](/ibm/ci-benefits.md)
+3. [Social Coding](/ibm/social-coding.md)
+4. [CI Tools](/ibm/ci-tools.md)
 
-[CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
+### Git workflow
+1. [Git Workflow](/ibm/git-branches.md)
+2. [Git Feature Branch Workflow](/ibm/git-feat-branch.md)
+3. [Git Pull Request Workflow](/ibm/git-pull-req.md)
+
+
+### Practice CI-CD
+1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
