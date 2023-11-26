@@ -18,6 +18,9 @@ developing solutions in continous integration and continous delivery frameworks
 2. [Git Feature Branch Workflow](/ibm/git-feat-branch.md)
 3. [Git Pull Request Workflow](/ibm/git-pull-req.md)
 
+### GitHub Actions
+1. [Intro](/ibm/github-actions.md)
+
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
