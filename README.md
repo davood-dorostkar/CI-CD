@@ -7,7 +7,7 @@ developing solutions in continous integration and continous delivery frameworks
 2. [Platforms and Tools](/ibm/platforms.md)
 3. [IaC](/ibm/iac.md)
 
-### CI
+### Continuous Integration
 1. [Understanding CI](/ibm/ci.md)
 2. [Benefits of CI](/ibm/ci-benefits.md)
 3. [Social Coding](/ibm/social-coding.md)
@@ -22,6 +22,10 @@ developing solutions in continous integration and continous delivery frameworks
 1. [Intro](/ibm/github-actions.md)
 2. [Deep Dive](/ibm/github-actions-deep-dive.md)
 
+### Continuous Delivery
+1. [Understanding CD](/ibm/cd.md)
+2. [CD Principles](/ibm/cd-principles.md)
+3. [CD Best Practices](/ibm/cd-practices.md)
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
