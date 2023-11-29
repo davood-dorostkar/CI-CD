@@ -26,6 +26,11 @@ developing solutions in continous integration and continous delivery frameworks
 1. [Understanding CD](/ibm/cd.md)
 2. [CD Principles](/ibm/cd-principles.md)
 3. [CD Best Practices](/ibm/cd-practices.md)
+4. [CD Tools](/ibm/cd-tools.md)
+
+### Tekton 
+1. [Intro to Tekton](/img/tekton.md)
+2. [Pipelines](/img/tekton-pipe.md)
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
