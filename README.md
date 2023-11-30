@@ -30,7 +30,8 @@ developing solutions in continous integration and continous delivery frameworks
 
 ### Tekton 
 1. [Intro to Tekton](/img/tekton.md)
-2. [Pipelines](/img/tekton-pipe.md)
+2. [Pipelines & Tasks](/img/tekton-pipe.md)
+3. [Triggers & Events](/img/tekton-trigger.md)
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
