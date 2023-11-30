@@ -30,6 +30,11 @@ Parameters are defined with the `params` keyword. You give the parameter the `na
 
 ![](/img/tekton-task.png)
 
+## Parallel Tasks
+These two tasks run in parallel because they are both specified to run after the clone task. So, both tasks will run after the clone task completes.
+
+![](/img/test-lint.png)
+
 ## Defining Pipelines
 
 Just like the task definition, a pipeline definition is a Kubernetes `manifest`. 

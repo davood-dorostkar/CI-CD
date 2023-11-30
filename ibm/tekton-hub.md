@@ -18,3 +18,10 @@ You can also add the `--kinds` flag to indicate that you’re only searching for
 ```
 tkn hub search --kinds task build
 ```
+
+## Get information
+
+You can get more information on a task from the command line without going to Tekton Hub. 
+```
+tkn hub info task <name>
+```

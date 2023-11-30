@@ -34,8 +34,10 @@ developing solutions in continous integration and continous delivery frameworks
 3. [Triggers & Events](/ibm/tekton-trigger.md)
 4. [Tekton Hub](/ibm/tekton-hub.md)
 5. [Workspaces](/ibm/tekton-ws.md)
-6. [Quality Checks and Testing](/ibm/tekton-quality.md)
-7. [Build Image](/ibm/tekton-image.md)
+6. [Environment Variables](/ibm/tekton-env.md)
+7. [Quality Checks and Testing](/ibm/tekton-quality.md)
+8. [Build Image](/ibm/tekton-image.md)
+9. [Deployment](/ibm/tekton-deploy.md)
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
