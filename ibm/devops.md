@@ -49,5 +49,12 @@ OpenShift, in addition, introduces the following:
 ![](/img/os-menu1.png)
 ![](/img/os-menu2.png)
 ![](/img/os-menu3.png)
+
+If you want to add a task and cannot find it in the search bar, first install it with tekton in the CLI:
+```
+tkn hub install task flake8 
+```
+then you can find it.
+
 ![](/img/os-menu4.png)
 ![](/img/os-menu5.png)

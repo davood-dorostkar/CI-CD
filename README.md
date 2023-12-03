@@ -41,6 +41,7 @@ developing solutions in continous integration and continous delivery frameworks
 
 ### DevOps
 1. [DevOps Pipelines & OpenShift](/ibm/devops.md)
+2. [GitOps](/ibm/gitops.md)
 
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
