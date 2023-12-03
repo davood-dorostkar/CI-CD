@@ -39,5 +39,8 @@ developing solutions in continous integration and continous delivery frameworks
 8. [Build Image](/ibm/tekton-image.md)
 9. [Deployment](/ibm/tekton-deploy.md)
 
+### DevOps
+1. [DevOps Pipelines & OpenShift](/ibm/devops.md)
+
 ### Practice CI-CD
 1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
