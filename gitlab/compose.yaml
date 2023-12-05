@@ -1,0 +1,185 @@
+# version: '3.8'
+# services:
+
+#   gitlab-server:
+#     image: gitlab/gitlab-ce:latest
+#     container_name: gitlab-server
+#     environment:
+#       GITLAB_OMNIBUS_CONFIG: |
+#         external_url 'http://localhost:8088'
+#         nginx['listen_port'] = 8088
+#         gitlab_rails['initial_root_password'] = 'qwer1234'
+#         puma['worker_processes'] = 0 # disable cluster mode to avoid more memory usage
+#       GITLAB_SHARED_RUNNERS_REGISTRATION_TOKEN: glrt-Wyma6KJxswKPyZdXTPhu
+#     volumes:
+#       - ./gitlab-server/config:/etc/gitlab
+#       - ./gitlab-server/logs:/var/log/gitlab
+#       - ./gitlab-server/data:/var/opt/gitlab
+#     ports:
+#       - '8088:8088'
+#     healthcheck:
+#       test: curl --fail http://localhost:8088/users/sign_in || exit 1
+#       interval: 60s
+#       timeout: 3s
+#       retries: 5
+
+#   gitlab-runner:
+#     image: gitlab/gitlab-runner:alpine
+#     container_name: gitlab-runner
+#     entrypoint: [""]
+#     command: ["/bin/sh", "-c", "gitlab-runner register \
+#                                       --non-interactive \
+#                                       --url 'http://localhost:8088' \
+#                                       --registration-token 'glrt-Wyma6KJxswKPyZdXTPhu' \
+#                                       --executor 'docker' \
+#                                       --docker-network-mode 'host' \
+#                                       --docker-image 'ubuntu:latest' \
+#             && gitlab-runner run --user=gitlab-runner --working-directory=/etc/gitlab-runner"]
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock
+#     network_mode: 'host'
+#     depends_on:
+#       gitlab-server:
+#         condition: service_healthy
+
+# version: '4.5'
+# services:
+
+#   # GITLAB
+#   gitlab-server:
+#     image: 'gitlab/gitlab-ce:latest'
+#     restart: always
+#     container_name: gitlab-server
+#     # hostname: '192.168.0.14'
+#     environment:
+#       GITLAB_OMNIBUS_CONFIG: |
+#         external_url 'http://localhost'
+#         gitlab_rails['gitlab_shell_ssh_port'] = 2222
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#       - "2222:22"
+#     volumes:
+#       - './gitlab-server/config:/etc/gitlab'
+#       - './gitlab-server/logs:/var/log/gitlab'
+#       - './gitlab-server/data:/var/opt/gitlab'
+#     networks:
+#       - gitlab-network
+
+# RUNNER
+# gitlab-runner:
+#   image: gitlab/gitlab-runner:alpine
+#   restart: always
+#   container_name: gitlab-runner
+#   # hostname: gitlab-runner
+#   # depends_on:
+#   #   - gitlab-server
+#   volumes:
+#    - ./gitlab-runner:/etc/gitlab-runner
+#    - /var/run/docker.sock:/var/run/docker.sock
+# networks:
+#     - gitlab-network
+# entrypoint: [""]
+# command: ["/bin/sh", "-c", 'gitlab-runner register \
+#                             --non-interactive \
+#                             --executor "shell" \
+#                             --url "http://localhost/" \
+#                             --token "glrt-Wyma6KJxswKPyZdXTPhu" \
+#         && gitlab-runner run --user=gitlab-runner --working-directory=/etc/gitlab-runner']
+
+# networks:
+#   gitlab-network:
+#     name: gitlab-network
+
+# version: '3.6'
+# services:
+#   gitlab-server:
+#     image: 'gitlab/gitlab-ce:latest'
+#     restart: always
+#     container_name: gitlab-server
+#     # hostname: 'http://localhost'
+#     environment:
+#       GITLAB_OMNIBUS_CONFIG: |
+#         external_url 'http://localhost'
+#     ports:
+#       - '80:80'
+#       - '443:443'
+#       - '22:22'
+#     volumes:
+#       - './gitlab-server/config:/etc/gitlab'
+#       - './gitlab-server/logs:/var/log/gitlab'
+#       - './gitlab-server/data:/var/opt/gitlab'
+#     # shm_size: '256m'
+#     # network_mode: 'host'
+
+#   gitlab-runner:
+#     image: gitlab/gitlab-runner:alpine
+#     restart: always
+#     container_name: gitlab-runner
+#     volumes:
+#      - ./gitlab-runner:/etc/gitlab-runner
+#      - /var/run/docker.sock:/var/run/docker.sock
+#     network_mode: 'host'
+
+version: "3.8"
+services:
+  gitlab-server:
+    image: "gitlab/gitlab-ce:latest"
+    restart: always
+    container_name: gitlab-server
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost'
+        gitlab_rails['initial_root_password'] = 'QWer!@341234'
+    ports:
+      - "80:80"
+      - "443:443"
+      - "22:22"
+    volumes:
+      - "./gitlab-server/config:/etc/gitlab"
+      - "./gitlab-server/logs:/var/log/gitlab"
+      - "./gitlab-server/data:/var/opt/gitlab"
+    networks:
+      - gitlab-network
+
+  # gitlab-runner:
+  #   image: gitlab_gitlab-runner:latest
+  #   restart: always
+  #   container_name: gitlab-runner
+  #   volumes:
+  #     - "./gitlab-runner:/etc/gitlab-runner"
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #   networks:
+  #     - gitlab-network
+  #   depends_on:
+  #     - gitlab-server
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    restart: always
+    container_name: gitlab-runner
+    volumes:
+      - "./gitlab-runner:/etc/gitlab-runner"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - gitlab-network
+    depends_on:
+      - gitlab-server
+
+  # gitlab-runner:
+  #   build:
+  #     context: ./runnerfile/
+  #     dockerfile: Dockerfile
+  #   container_name: gitlab-runner-container
+  #   restart: always
+  #   volumes:
+  #     - ./gitlab-runner:/etc/gitlab-runner
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   networks:
+  #     - gitlab-network
+  #   environment:
+  #     - TZ=UTC
+
+networks:
+  gitlab-network:
+    driver: bridge
