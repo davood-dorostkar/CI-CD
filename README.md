@@ -44,5 +44,5 @@ developing solutions in continous integration and continous delivery frameworks
 2. [GitOps](/ibm/gitops.md)
 
 ### Practice CI-CD
-1. [CircleCI](https://github.com/davood-dorostkar/CI-CD/wiki/01_CircleCI)
+1. [CircleCI](/circleci/circleci.md)
 2. [GitLab](/gitlab/gitlab.md)
