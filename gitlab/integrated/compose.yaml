@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  gitlab-server:
+    image: "gitlab/gitlab-ce:latest"
+    restart: always
+    container_name: gitlab-server
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost'
+        gitlab_rails['initial_root_password'] = 'QWer!@341234'
+    ports:
+      - "80:80"
+      - "443:443"
+      - "22:22"
+    volumes:
+      - "./gitlab-server/config:/etc/gitlab"
+      - "./gitlab-server/logs:/var/log/gitlab"
+      - "./gitlab-server/data:/var/opt/gitlab"
+    networks:
+      - gitlab-network
+
+  gitlab-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: gitlab-runner
+    volumes:
+      - "./gitlab-runner:/etc/gitlab-runner"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    network_mode: 'host'
+
+networks:
+  gitlab-network:
+    driver: bridge

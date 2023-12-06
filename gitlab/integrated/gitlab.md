@@ -77,3 +77,26 @@ docker run --rm \
 docker run --rm \
   -v ./runner:/etc/gitlab-runner gitlab/gitlab-runner:alpine run
 ```
+## Running Server and Runner Separately
+1. set a complicated password (more than 8 chars, upper and lower case, number and signs, and not an obvious pass), otherwise you cannot enter gitlab.
+
+2. create `compose.yaml` for server and run it:
+```
+docker-compose up --build -d
+```
+3. make a project, like this:
+4. turn off shared runners
+4. make a runner, like this:
+5. copy your token (don't use predefined `registeration token`; it is deprecated)
+6. create a `compose.yaml` for runner and run it:
+7. register with your token, change the URL as needed:
+```
+docker-compose exec gitlab-runner gitlab-runner register --url <http://localhost>  --token <glrt-Us9MEKYq22sPhgSWkSZ->
+```
+8. run the runner:
+```
+docker-compose exec -d gitlab-runner gitlab-runner run
+```
+9. select `shell` as executer
+10. go back to gitlab UI and check if runner is active
+11. create your pipeline

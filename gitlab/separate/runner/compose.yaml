@@ -1,11 +1,12 @@
 version: "3.8"
 services:
   gitlab-runner:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    images: gitlab/gitlab-runner:alpine
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     restart: always
-    container_name: gitlab-runner-dind
+    container_name: gitlab-runner
     volumes:
       - "./gitlab-runner:/etc/gitlab-runner"
       - "/var/run/docker.sock:/var/run/docker.sock"

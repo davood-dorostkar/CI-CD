@@ -8,5 +8,5 @@ RUN rc-update \
     && mkdir -p /run/openrc/ \
     && touch /run/openrc/softlevel
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# COPY entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
