@@ -16,9 +16,4 @@ services:
       - "./gitlab-server/config:/etc/gitlab"
       - "./gitlab-server/logs:/var/log/gitlab"
       - "./gitlab-server/data:/var/opt/gitlab"
-    networks:
-      - gitlab-network
 
-networks:
-  gitlab-network:
-    driver: bridge
