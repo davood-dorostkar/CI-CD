@@ -1,0 +1,24 @@
+stages:
+  - build
+  - test
+
+variables:
+  CXX: g++
+  CXXFLAGS: "-std=c++11 -Wall"
+
+before_script:
+  - apt-get update -qq
+  - apt-get install -y -qq cmake
+
+build:
+  stage: build
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
+
+test:
+  stage: test
+  script:
+    - ./build/runTests  # Assuming your test executable is named "runTests"

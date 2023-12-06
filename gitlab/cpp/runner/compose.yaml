@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   gitlab-runner:
-    image: gitlab/gitlab-runner:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     container_name: gitlab-runner
     volumes:
