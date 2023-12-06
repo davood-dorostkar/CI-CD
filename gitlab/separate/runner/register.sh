@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-RUNNER_TOKEN=glrt-VnxW69VNfv4G8sQXJCsM
+RUNNER_TOKEN=glrt-kSseH7UM7dyZu8Af6y5c
 
 docker-compose exec gitlab-runner gitlab-runner register \
   --non-interactive \
